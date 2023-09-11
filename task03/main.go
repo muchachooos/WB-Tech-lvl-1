@@ -18,17 +18,18 @@ func main() {
 	// Создаём Mutex.
 	mx := sync.Mutex{}
 
+	// Создаём переменную для суммы квадратов.
 	var sumSquare int
 
 	// Для каждого элемента запускаем новую горутину, которая выполняет расчет.
 	for _, num := range arr {
 		wg.Add(1) // Увеличиваем счетчик горутин в WaitGroup.
 		go func(n int) {
-			square := n * n
-			mx.Lock() // Блокируем Mutex.
-			sumSquare += square
-			mx.Unlock() // Разблокируем Mutex после завершения работы с общими данными.
-			wg.Done()   // Уменьшаем счетчик горутин в WaitGroup.
+			square := n * n     // Вычесляем квадрат.
+			mx.Lock()           // Блокируем Mutex.
+			sumSquare += square // Прибавляем квадрат числа к общей сумме.
+			mx.Unlock()         // Разблокируем Mutex после завершения работы с общими данными.
+			wg.Done()           // Уменьшаем счетчик горутин в WaitGroup.
 		}(num)
 	}
 
