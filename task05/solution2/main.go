@@ -31,11 +31,13 @@ func main() {
 		for {
 			// Ожидаем данные из каналов waitChan и dataChan.
 			select {
-			case <-waitChan: // Если в waitChan есть данные (то есть прошло 5 секунд), то завершаем ф-цию.
+			// Если в waitChan есть данные (то есть прошло 5 секунд), то завершаем ф-цию.
+			case <-waitChan:
 				fmt.Println("Timeout")
-				wg.Done()
-				return
-			case data := <-dataChan: // Если в dataChan есть данные, то выводим их в консоль.
+				wg.Done() // Уменьшаем счетчик горутин в WaitGroup.
+				return    // Завершаем работу горутины.
+			// Если в dataChan есть данные, то выводим их в консоль.
+			case data := <-dataChan:
 				fmt.Println("Received:", data)
 			}
 		}
