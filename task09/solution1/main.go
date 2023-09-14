@@ -14,7 +14,9 @@ func main() {
 	// Создаём массив с данными.
 	data := []int{3, 33, 133, 233, 333, 433, 533, 633, 733}
 
+	// Вызываем функцию reader для создания канала in из массива data.
 	in := reader(data)
+	// Вызываем функцию multiplier для создания канала out из канала in.
 	out := multiplier(in)
 
 	wg := sync.WaitGroup{}
