@@ -19,7 +19,7 @@ func main() {
 	for _, num := range arr {
 		wg.Add(1) // Увеличиваем счетчик горутин в WaitGroup.
 		go func(n int) {
-			square := n * n
+			square := n * n // Вычесляем квадрат.
 			fmt.Println(square)
 			wg.Done() // Уменьшаем счетчик горутин в WaitGroup.
 		}(num)
