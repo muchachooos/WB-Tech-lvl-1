@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 // Разработать конвейер чисел.
@@ -16,10 +17,18 @@ func main() {
 	in := reader(data)
 	out := multiplier(in)
 
-	// Выводим в stdout все числа из канала out.
-	for num := range out {
-		fmt.Println(num)
-	}
+	wg := sync.WaitGroup{}
+
+	// Запускаем горутину которая выводит в stdout все числа из канала out.
+	wg.Add(1)
+	go func() {
+		for num := range out {
+			fmt.Println(num)
+		}
+		wg.Done()
+	}()
+
+	wg.Wait()
 }
 
 // reader читает числа из массива, отправляет их в канал и возвращает его.
