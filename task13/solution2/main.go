@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Поменять местами два числа без создания временной переменной.
+
 func main() {
 	var a, b int
 
