@@ -14,13 +14,16 @@ func main() {
 }
 
 func sortInt() []int {
-	return sort.IntSlice{3, 2, 1, 5, 2, 4} // Создаём массив int и сортируем.
+	// Создаём массив int и сортируем.
+	return sort.IntSlice{3, 2, 1, 5, 2, 4}
 }
 
 func sortFloat() []float64 {
-	return sort.Float64Slice{3.33, 2.0, 0.3, 53.033, 2.0, 4.33} // Создаём массив float64 и сортируем.
+	// Создаём массив float64 и сортируем.
+	return sort.Float64Slice{3.33, 2.0, 0.3, 53.033, 2.0, 4.33}
 }
 
 func sortString() []string {
-	return sort.StringSlice{"3", "three", "two", "one", "five", "two"} // Создаём массив string и сортируем.
+	// Создаём массив string и сортируем.
+	return sort.StringSlice{"3", "three", "two", "one", "five", "two"}
 }
