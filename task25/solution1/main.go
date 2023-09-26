@@ -15,7 +15,7 @@ func main() {
 	fmt.Println("End")
 }
 
-func mySleep(in time.Duration) {
-	// time.After ожидает истечения продолжительности in, а затем отправляет текущее время по возвращаемому каналу
-	<-time.After(in)
+func mySleep(d time.Duration) {
+	// time.After ожидает истечения продолжительности d, а затем отправляет текущее время по возвращаемому каналу
+	<-time.After(d)
 }
