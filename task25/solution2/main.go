@@ -15,11 +15,11 @@ func main() {
 	fmt.Println("End")
 }
 
-func mySleep(in time.Duration) {
+func mySleep(d time.Duration) {
 	// Засекаем текущее время.
 	startTime := time.Now()
 
-	// Since возвращает время, прошедшее с момента startTime, пока оно меньше in, цикл не завершиться.
-	for time.Since(startTime) < in {
+	// Since возвращает время, прошедшее с момента startTime, пока оно меньше d, цикл не завершиться.
+	for time.Since(startTime) < d {
 	}
 }
